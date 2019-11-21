@@ -1,0 +1,18 @@
+<h1>Books</h1>
+
+<%= flash[:notice] %>
+
+<ul id="books">
+  <%= render @books %>
+</ul>
+<br>
+
+<%= form_with model: @book do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+  <%= f.label :description %>
+  <%= f.text_area :description %><br>
+  <%= f.label :author %>
+  <%= f.text_field :author %><br>
+  <%= f.submit %>
+<% end %>
