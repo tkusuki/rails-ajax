@@ -1,1 +1,5 @@
-$("<%= escape_javascript(render @book) %>").appendTo("#books");
+var range = document.createRange()
+var node = range.createContextualFragment("<%= j (render @book) %>")
+
+document.querySelector("#books").appendChild(node)
+document.querySelector("form").reset();

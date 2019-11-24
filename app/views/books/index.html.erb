@@ -2,9 +2,9 @@
 
 <%= flash[:notice] %>
 
-<ul id="books">
+<div id="books">
   <%= render @books %>
-</ul>
+</div>
 <br>
 
 <%= form_with model: @book do |f| %>

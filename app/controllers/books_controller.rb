@@ -14,7 +14,7 @@ class BooksController < ApplicationController
     respond_to do |format|
       if @book.save
         format.html { redirect_to books_path, notice: 'Book was successfully created.' }
-        format.json { render json: @book, status: :created, location: @book }
+        format.js {}
       else
         format.html { render action: "new" }
         format.json { render json: @book.errors, status: :unprocessable_entity }
@@ -28,7 +28,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to books_path, notice: 'Book was deleted!' }
-      format.json { head :no_content }
+      format.js {}
     end
   end
 
