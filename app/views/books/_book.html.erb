@@ -2,5 +2,5 @@
   <li>Title: <%= book.title %></li>
   <li>Author: <%= book.author %></li>
   <li><%= link_to 'Delete', book, remote: true, method: :delete,
-    data: { confirm: 'Are you sure?' } %></li>
+    data: { confirm: 'Are you sure?' }, class: 'delete' %></li>
 </ul>

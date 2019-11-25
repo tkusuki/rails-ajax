@@ -1,5 +1,19 @@
-var range = document.createRange()
-var node = range.createContextualFragment("<%= j (render @book) %>")
+var formElement = document.querySelector("form");
 
-document.querySelector("#books").appendChild(node)
-document.querySelector("form").reset();
+formElement.addEventListener("ajax:success", function(event) {
+  var range = document.createRange()
+  var node = range.createContextualFragment("<%= j (render @book) %>")
+
+  event.preventDefault();
+  document.querySelector("#books").appendChild(node);
+  document.getElementById("notification").innerHTML = "Book was successfully created!";
+  formElement.reset();
+});
+
+// TODO: fazer funcionar de outra forma.
+formElement.addEventListener("ajax:error", function(event) {
+  var errorMessage = <% @book.errors.full_messages %>
+
+  event.preventDefault();
+  document.getElementById("notification").innerHTML = errorMessage;
+});

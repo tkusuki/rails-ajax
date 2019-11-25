@@ -17,7 +17,7 @@ class BooksController < ApplicationController
         format.js {}
       else
         format.html { render action: "new" }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end

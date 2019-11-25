@@ -1,2 +1,10 @@
-var element = document.getElementById("<%= @book.id %>")
-element.parentNode.removeChild(element);
+document.querySelectorAll('.delete').forEach(function(item) {
+  item.addEventListener("ajax:success", function(event) {
+    event.preventDefault();
+
+    var element = document.getElementById("<%= @book.id %>");
+    element.parentNode.removeChild(element);
+
+    document.getElementById("notification").innerHTML = "Book was deleted!";
+  });
+});
